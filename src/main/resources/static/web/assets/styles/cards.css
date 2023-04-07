@@ -1,0 +1,314 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+body{
+    width: 99vw;
+    background-image: url('../images/zac-nielson-s4vuMuapk4Y-unsplash.jpg   ');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+main{
+    width: 99vw;
+    background-color: #16192545;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    width: 99vw;
+    height: 15vh;
+    background-color: #23395bf5;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo{
+    width: 220px;
+    height: 220px;
+    filter: grayscale() invert();
+}
+
+h1{
+    font-size: 80px;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px black;
+    color: #d1e3ea !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.colorNav{
+    background-color: #23395b8b;
+}
+
+.navColor{
+    color: #d1e3ea!important;
+}
+.navColorActive{
+    color: #23395b;
+}
+.creditCard{
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    height: 250px;
+}
+.frontCardgold{
+    background-image: url(../images/gold.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.frontCardSilver{
+    background-image: url(../images/silver.avif);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.frontCardTitanium{
+    background-image: url(../images/titanium.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.complementLogo{
+    display: flex !important;
+    flex-direction: row !important;
+    margin-left: 15px !important;
+    margin-top: 15px !important;
+}
+.titleCard{
+    font-size: 20px !important;
+    color: white !important;
+}
+.logoCard{
+    width: 28px !important;
+    height: 28px !important;
+    margin-left: 15px !important;
+}
+.chipName{
+    display: flex !important;
+    flex-direction: row !important;
+    margin-top: 15px !important;
+}
+.chipCard{
+    width: 50px !important;
+    height: 50px !important;
+    margin-left: 15px !important;
+}
+.cardHolder{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 30px !important;
+    color: aliceblue !important;
+    width: 200px !important;
+    font-size: 30px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+.numberCard{
+    display: flex !important;
+    flex-direction: row !important;
+    width: 320px !important;
+    justify-content: center !important;
+    color: aliceblue !important;
+    font-size: 20px !important;
+    margin-top: 5px !important;
+}
+.cardDates{
+    width: 320px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-top: 0px !important;
+    width: 30px !important;
+    padding: 0px !important;
+    justify-content: space-between !important;
+
+}
+.date{
+    color: aliceblue !important;
+    font-size: 10px !important;
+    width: 15px !important;
+    margin-left: 70px !important;
+}
+.dates{
+    color: aliceblue !important;
+    font-size: 10px !important;
+    margin-left: 10px !important;
+}
+.masterCard{
+    width: 60px !important;
+    height: 30px !important;
+    margin-left: 20px !important;
+    margin-bottom: 5px !important;
+}
+.backCardGold{
+    background-image: url(../images/gold.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.backCardSilver{
+    background-image: url(../images/silver.avif);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.backCardTitanium{
+    background-image: url(../images/titanium.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.customerCard{
+    color:aliceblue !important;
+    text-align: center !important;
+    /* margin-left: 10px !important; */
+    font-size: 15px !important;
+    margin-left: 20px !important;
+
+}
+.bandaCard{
+    background-color: black !important;
+    width: 320px !important;
+    height: 40px !important;
+}
+.cvvCard{
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0px !important;
+    margin-top: 15px !important;
+}
+.cvvBand{
+    margin-left: 10px !important;
+    height: 35px !important;
+    width: 200px !important;
+    background-color: #C8C6C4 !important;
+}
+.cvvText{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #A9A6A7 !important;
+    height: 35px !important;
+    width: 35px !important;
+    color: aliceblue !important;
+    font-size: 20px !important;
+}
+.cardConditions{
+    font-size: 10px !important;
+    color: aliceblue !important;
+    margin: 15px !important;
+    text-align: justify !important;
+}
+/* codigo para el footer */
+.footerTitle{
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px black;
+    color: #d1e3ea;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.inconsCustom{
+    font-size: 40px;
+    margin-left: 15px;
+    color: #d1e3ea;
+    text-shadow: 5px 5px 5px black;
+}
+.inconsCustom:hover{
+    color: #5f6465;
+}
+.actionsHeader{
+    margin-right: 20px;
+    color:#d1e3ea;
+    cursor: pointer;
+}
+.actionsHeader:hover{
+    color: gray;
+}
+.actionsHeader:hover{
+    color: gray !important;
+}
+.tarjeta-expirada {
+    background-color: maroon;
+    margin-left: -0.5rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: whitesmoke;
+    height: 2rem;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    margin-top: -1rem;
+}
+.viewCards{
+    width:850px;
+    display: flex; 
+    flex-direction: row;
+}
+.deleteCardBtn{
+    width:100px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #e90e0e;
+    border-color: red;
+    box-shadow: 1px 1px 1px red;
+}
+.deleteCardBtn:hover{
+    background-color: #800404;
+    border-color: #800404;
+    box-shadow: 1px 1px 1px #800404;
+}
+@media (min-width: 320px) and (max-width: 947px){
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .viewCards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

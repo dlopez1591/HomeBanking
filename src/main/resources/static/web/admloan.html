@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Loan</title>
+    <link rel="stylesheet" href="./assets/styles/admloan.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body id="app">
+    <header class="d-flex justify-content-between">
+        <img src="./assets/images/logo.png" class="logo">
+        <h3 class="actionsHeader" @click="logOut">
+            <i class="bi bi-box-arrow-right"></i>
+            Log Out
+          </h3>
+    </header>
+    
+      <div id="app" class="d-flex flex-lg-row  d-flex flex-column align-items-center justify-content-center bigContainer">
+        <main>
+            <h1 class="text-center p-2">Create a New Loan</h1>
+            <div class="contenedor">
+                <div class="mb-3">
+                    <label class="form-label" form="inpu1">Loan Name:</label>
+                    <input v-model="name" type="text" id="inpu1" class="form-control"
+                        placeholder="Loan Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" form="input2">Max Amount:</label>
+                    <input v-model="maxAmount" type="number" id="input2" class="form-control"
+                        placeholder="400000">
+                </div>
+                <fieldset class="mb-3">Payment
+                    <input v-model="payment" type="number" id="input2" class="form-control"
+                        placeholder="Add The First Option, then the second options..." :value="payment">
+                        <button @click="addNumberPayments(payment)" class="btn btn-success mt-2">add</button>
+                        
+                </fieldset>
+                <p>This is the Payments that your customer will choose: <br>
+                    {{loansPayments}}</p>
+                <div class="mb-3">
+                    <label class="form-label" form="input4">Interes Percentage:</label>
+                    <input v-model="percentage" type="number" id="input4" class="form-control"
+                        placeholder="0.3">
+                </div>
+                <button type="submit" class="btn btn-primary" @click=" createLoan()">Create New Loan</button>
+            </div>
+            
+        </main>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Client</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-duotone fa-arrow-up-right-from-square"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div class="mb-3">
+                                <label class="form-label" form="disabledTextInput4">Name:</label>
+                                <input v-model="modiClient.firstName" type="text" id="disabledTextInput4" class="form-control"
+                                    placeholder="David">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" form="disabledTextInput5">Last name:</label>
+                                <input v-model="modiClient.lastName" type="text" id="disabledTextInput5" class="form-control"
+                                    placeholder="Dovy">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" form="disabledTextInput6">Email:</label>
+                                <input v-model="modiClient.email" type="email" id="disabledTextInput6" class="form-control"
+                                    placeholder="david@gmial.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger text-dark" data-bs-dismiss="modal" aria-label="Close" @click="deleteClient()">Delete</button>
+                        <button type="button" class="btn btn-warning text-dark" data-bs-dismiss="modal" aria-label="Close" @click="modifyClient()">Modify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/scripts/admloan.js"></script>
+</body>
+</html>

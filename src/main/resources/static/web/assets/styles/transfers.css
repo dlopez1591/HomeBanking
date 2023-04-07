@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+body{
+    width: 100vw;
+    background-image: url('../images/zac-nielson-s4vuMuapk4Y-unsplash.jpg   ');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+main{
+    height: 64.7vh;
+    background-color: #16192545;
+}
+header{
+    width: 100vw;
+    height: 15vh;
+    background-color: #23395bf5;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo{
+    width: 220px;
+    height: 220px;
+    filter: grayscale() invert();
+}
+h1{
+    font-size: 80px;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px black;
+    color: #d1e3ea !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.colorNav{
+    background-color: #23395b8b;
+}
+footer{
+    width: 100vw;
+    height: 12vh;
+    background-color: #23395bf5;
+}
+.navColor{
+    color: #d1e3ea!important;
+}
+.navColorActive{
+    color: #23395b;
+}
+/* codigo para el footer */
+.footerTitle{
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px black;
+    color: #d1e3ea;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.inconsCustom{
+    font-size: 40px;
+    margin-left: 15px;
+    color: #d1e3ea;
+    text-shadow: 5px 5px 5px black;
+}
+.inconsCustom:hover{
+    color: #5f6465;
+}
+.actionsHeader{
+    margin-right: 20px;
+    color:#d1e3ea;
+    cursor: pointer;
+}
+.actionsHeader:hover{
+    color: gray !important;
+}
+.formContent{
+    width: 55vh;
+    height: 47vh;
+    background-color: #d1e3ea;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+}
+.selectAccount{
+    width: 300px!important;
+}

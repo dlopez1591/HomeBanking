@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="stylesheet" href="./assets/styles/cards.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body id="app">
+  <header class="d-flex justify-content-between">
+        
+    <img src="./assets/images/logo.png" class="logo">
+    <div class="d-flex flex-row me-5">
+      <h3 class="actionsHeader" @click="logOut">
+        <i class="bi bi-box-arrow-right"></i>
+        Log Out
+      </h3>
+  </div>
+</header>
+    <nav class="navbar navbar-expand-lg colorNav">
+        <div class="container-fluid">
+          <a class="navbar-brand navColor" href="#">HomeBanking</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link navColor" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link navColor" href="./accounts.html">Accounts</a>
+              <a class="nav-link navColor" href="./loans.html">Loans</a>
+              <a class="nav-link navColorActive" href="./cards.html">Cards</a>
+              <a class="nav-link navColor" href="./transfers.html">Transfers</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+<main > 
+       
+<h1>Credit Cards</h1>
+<div v-for="card in filteredCardsCredit" :key="card.id" class="viewCards"> 
+    <button class="btn-danger deleteCardBtn" @click="deleteCard(card)">Delete Card</button>
+    <div :class="{ frontCardgold: card.color === 'GOLD', frontCardSilver: card.color === 'SILVER', frontCardTitanium: card.color ==='TITANIUM'}">
+      <div class="tarjeta-expirada" v-if="card.thruDate < fechaFinal">
+        EXPIRADA</div>
+      <div class="complementLogo">
+        <h1 class="titleCard">MINDHUB BANK</h1>
+        <img src="./assets/images/bank.png" class="logoCard"> 
+      </div>
+      <div class="chipName">
+        <img src="./assets/images/chip-tarjeta.png" class="chipCard"> 
+        <p class="cardHolder">{{cliente.firstName}} {{cliente.lastName}}</p>
+      </div>
+      <p class="numberCard"> <b>{{card.number}}</b></p>
+      <div class="cardDates">
+        <p class="date">Valid From:</p> <p class="dates">{{card.fromDate}}</p>
+        <p class="date">Valid End:</p> <p class="dates">{{card.thruDate}}</p>
+        <img src="./assets/images/mastercard.png" class="masterCard"> 
+      </div>
+    </div>
+    <div :class="{backCardGold: card.color === 'GOLD', backCardSilver: card.color === 'SILVER', backCardTitanium: card.color ==='TITANIUM'}">
+      <p class="customerCard">Customer Service +1 234-567-890</p>
+      <div class="bandaCard">
+      </div>
+      <div class="cvvCard">
+        <div class="cvvBand"></div>
+        <p class="cvvText"><b>{{card.cvv}}</b></p>
+      </div>
+      <p class="cardConditions">
+        A credit card's terms and conditions officially document the rules and guidelines of the agreement between a credit card issuer and a cardholder. Common terms and conditions include the fees, interest rate, and annual percentage rate carried by the credit card.
+      </p> 
+    </div>  
+    
+</div>
+<h1>Debit Cards</h1>
+<div v-for="card in filteredCardsDebit" :key="card.id" class="viewCards"> 
+  <!-- <div class="conficionalUno d-flex flex-row">  -->
+    <button class="deleteCardBtn" @click="deleteCard(card)">Eliminar tarjeta</button>
+    <div :class="{ frontCardgold: card.color === 'GOLD', frontCardSilver: card.color === 'SILVER', frontCardTitanium: card.color ==='TITANIUM'}">
+      <div class="tarjeta-expirada" v-if="card.thruDate < fechaFinal">
+        EXPIRADA</div>
+      <div class="complementLogo">
+        <h1 class="titleCard">MINDHUB BANK</h1>
+        <img src="./assets/images/bank.png" class="logoCard"> 
+      </div>
+      <div class="chipName">
+        <img src="./assets/images/chip-tarjeta.png" class="chipCard"> 
+        <p class="cardHolder">{{cliente.firstName}} {{cliente.lastName}}</p>
+      </div>
+      <p class="numberCard"> <b>{{card.number}}</b></p>
+      <div class="cardDates">
+        <p class="date">Valid From:</p> <p class="dates">{{card.fromDate}}</p>
+        <p class="date">Valid End:</p> <p class="dates">{{card.thruDate}}</p>
+        <img src="./assets/images/mastercard.png" class="masterCard"> 
+      </div>
+    </div>
+    <div :class="{backCardGold: card.color === 'GOLD', backCardSilver: card.color === 'SILVER', backCardTitanium: card.color ==='TITANIUM'}">
+      <p class="customerCard">Customer Service +1 234-567-890</p>
+      <div class="bandaCard">
+      </div>
+      <div class="cvvCard">
+        <div class="cvvBand"></div>
+        <p class="cvvText"><b>{{card.cvv}}</b></p>
+      </div>
+      <p class="cardConditions">
+        A credit card's terms and conditions officially document the rules and guidelines of the agreement between a credit card issuer and a cardholder. Common terms and conditions include the fees, interest rate, and annual percentage rate carried by the credit card.
+      </p> 
+    </div>  
+  <!-- </div>   -->
+</div>
+
+      </main>
+     
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="./assets/scripts/cards.js"></script>
+</body>
+</html>

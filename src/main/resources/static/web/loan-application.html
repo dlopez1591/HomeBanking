@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To Mind Hub Bank LLC</title>
+    <link rel="stylesheet" href="./assets/styles/loan-application.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body id="app">
+    <header class="d-flex justify-content-between">
+        <img src="./assets/images/logo.png" class="logo">
+        <div class="d-flex flex-row me-5">
+            <h3 class="actionsHeader" data-bs-toggle="modal" data-bs-target="#logIn">Log In</h3>
+            <h3 class="actionsHeader" data-bs-toggle="modal" data-bs-target="#register">Register</h3>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg colorNav">
+        <div class="container-fluid">
+          <a class="navbar-brand navColor" href="#">HomeBanking</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active navColor" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link navColor" href="./accounts.html">Accounts</a>
+              <a class="nav-link navColorActive" href="./loans.html">Loans</a>
+              <a class="nav-link navColor" href="./cards.html">Cards</a>
+              <a class="nav-link navColor" href="./transfers.html">Transfers</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="d-flex justify-content-evenly align-items-center m-4 flex-wrap">
+        <div class="text-loans d-flex flex-wrap justify-content-between" style="max-width: 80%;">
+            <div>
+                <h1 class="titleLog">Form Loans</h1>
+                <fieldset>Loan Type
+                    <select class="form-select mt-1 input-filter" aria-label="Default select example" v-model="id">
+                        <option v-for="loan of loans" :value="loan.id">{{loan.name}}</option>
+                    </select>
+                </fieldset>
+                <fieldset class="mt-2">Loan Payments
+                    <select class="form-select mt-1 input-filter" aria-label="Default select example"
+                        v-model="payments">
+                        <option v-for="payment of filterLoans()">{{payment}}</option>
+                    </select>
+                </fieldset>
+                <fieldset class="mt-2">Destination Account
+                    <select class="form-select mt-1 input-filter" aria-label="Default select example"
+                        v-model="accountDestiny">
+                       <option v-for="account of data.accounts" :value="account.number">{{account.number}} {{account.show}}</option>    
+                    </select>
+                </fieldset>
+                <fieldset class="mt-2">Amount to Request
+                    <div class="input-group mb-3 input-filter">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" v-model="amount"
+                            aria-label="Amount (to the nearest dollar)">
+                    </div>
+                    <p v-if="amount>0">{{payments}} installments of
+                        ${{(amount*loanfiltrado().percentage/payments).toFixed(2)}}
+                    </p>
+                </fieldset>
+                <!-- <div v-for="loan of loans" >
+                    <p  v-show='loan.amount != 0' v-if="loan.name == loanElegidoName"
+                     >Pagaras {{payment}} cuotas de {{
+                      ((amount * loan.interes) + amount)/ payment).toFixed(2) }}
+                      (ValorMonto + (ValorMonto * ValorInteres)) / cuotasElegidas
+                    </p>
+                  </div> -->
+                  <div style="background-color: aliceblue;">
+                    {{payments}}
+                    {{id}}
+                    {{amount}}
+                    <div v-for="loan of loans">
+                        <div v-if="id == loan.id"> <p>Intereses: {{(amount * loan.porcentajeInteres)}}</p>
+                            <p>Cuota: ${{(amount * loan.porcentajeInteres)/payments}}</p>
+                        </div>
+                        
+                    </div>
+                  </div>
+                  
+                <button class="btnTransactions text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Apply for Loan</button>
+            </div>
+            
+        </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        Are you sure to apply for this loan?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="newLoan">Apply
+                            for Loan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer class="d-flex flex-row justify-content-around align-items-center">
+  <div class="footerName">
+    <h2 class="footerTitle">Daniel Lopez</h2>
+  </div>
+  <div class="icons">
+    <a href="https://www.linkedin.com/in/daniel-lopez-5a3989242/" target="_blank"><i class="bi bi-linkedin inconsCustom"></i></a>
+    <a href="https://twitter.com/dlopez1591" target="_blank"><i class="bi bi-twitter inconsCustom"></i></a>
+    <a href="https://github.com/dlopez1591" target="_blank"><i class="bi bi-github inconsCustom"></i></a>
+    <a href="https://wa.me/573217550046" target="_blank"><i class="bi bi-whatsapp inconsCustom"></i></a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  </div>
+</footer>
+
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/scripts/loan-application.js"></script>
+</body>
+</html>

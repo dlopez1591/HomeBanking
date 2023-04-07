@@ -1,0 +1,202 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+body{
+    width: 100vw;
+    background-image: url('../images/zac-nielson-s4vuMuapk4Y-unsplash.jpg   ');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+main{
+    height: 73vh;
+    background-color: #16192545;
+}
+header{
+    width: 100vw;
+    height: 15vh;
+    /* margin-left: 1vw;
+    margin-right: 1vw; */
+    /* margin-top: 2vh; */
+
+    background-color: #23395bf5;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo{
+    width: 220px;
+    height: 220px;
+    filter: grayscale() invert();
+}
+.textInformation{
+    width: 98vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titleLog{
+    font-size: 80px;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px black;
+    color: #d1e3ea;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+   
+}
+.textLogIn{
+    font-size: 25px;
+    color: #1d3699;
+    text-align: justify;
+    padding: 30px;
+}
+
+.logIn{
+    width:900px;
+    height: 500px;
+
+}
+.imagenLogIn{
+    width: 310px;
+    height: 400px;
+    opacity: 0.9;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow:  0 .3em black;
+
+    
+
+}
+.formulario{
+    width: 310px;
+    height: 475px;
+    background-color: #23395B;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 5px 5px 3px #23395B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titleForm{
+    font-size: 60px;
+    color: #d1e3ea;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin-top: 25px;
+}
+.inputText{
+    font-size: 25px;
+    color: #d1e3ea;
+    
+    padding-left: 15px;
+}
+.logInText{
+    width: 250px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: #d1e3ea;
+
+}
+.btnLogIn{
+    width: 150px;
+    border-radius: 15px;
+    border-style: none;
+    margin-left: 60px;
+    margin-top: 25px;
+    background:#d1e3ea;
+    box-shadow: 2px 1px 1px #d1e3ea
+}
+.links{
+    color: #d1e3ea;
+}
+.links:hover{
+    color:#161925;
+}
+.modalBackGround{
+    background-color: #23395B !important;
+}
+.btnClose{
+    width: 150px;
+    border-radius: 15px;
+    border-style: none;
+    margin-left: 60px;
+    margin-top: 25px;
+    background:#5f6465;
+    box-shadow: 2px 1px 1px #d1e3ea
+}
+.btnX{
+    color:#d1e3ea !important;
+}
+footer{
+    width: 100vw;
+    height: 12vh;
+ 
+    /* margin-left: 1vw;
+    margin-right: 1vw; */
+    /* margin-top: 2vh; */
+    background-color: #23395bf5;
+}
+.actionsHeader{
+    margin-right: 20px;
+    color:#d1e3ea;
+    cursor: pointer;
+}
+.actionsHeader:hover{
+    color: gray;
+}
+
+input{
+    padding-left: 1rem;
+}
+.textContainer{
+    background-color: #d1e3eabd;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 400px;
+    box-shadow: 5px 5px 5px black;
+}
+
+/* codigo para el footer */
+.footerTitle{
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px black;
+    color: #d1e3ea;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.inconsCustom{
+    font-size: 40px;
+    margin-left: 15px;
+    color: #d1e3ea;
+    text-shadow: 5px 5px 5px black;
+}
+.inconsCustom:hover{
+    color: #5f6465;
+}
+
+@media (min-width: 320px) and (max-width: 947px){
+    .imagenLogIn{
+        display: none!important;
+    }
+    .logIn{
+        width: 50%;
+        height: 800px;
+    }
+    .textContainer{
+        background-color: #d1e3eabd;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        box-shadow: 5px 5px 5px black;
+        height: 600px;
+    }
+}

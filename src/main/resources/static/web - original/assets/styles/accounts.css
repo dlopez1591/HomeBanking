@@ -1,0 +1,412 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+body{
+    /* background: rgb(206,211,220) !important;
+    background: radial-gradient(circle, rgba(252,247,248,1) 0%, rgba(142,170,186,1) 100%) !important; */
+    background-image: url(../images/background.jpg);
+    width: 98vw !important;
+    height: 98vh !important;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background: rgb(78,128,152);
+    background: linear-gradient(90deg, rgba(78,128,152,1) 24%, rgba(144,194,231,1) 76%);
+    opacity: 0.7;
+    width: 97.5vw;
+    height: 19vh;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+#logo{
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+}
+.icons{
+    height: 35px;
+    width: 35px;
+}
+.organizarHamburguesa{
+    width: 50vw;
+    height: 19vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.hamburguesa{
+    border-color: #8EAABA !important;
+    border-width: 3px !important;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+}
+.lineasHamburguesa{
+    width: 45px !important;
+}
+.menuLink{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 5px;
+    color: #212D33;
+}
+.menuLink:hover{
+    color: #A31621;
+}
+.menuLink-active{
+    text-decoration: none;
+    font-size: 29px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+    color: #A31621;
+}
+.accounts{
+
+    width: 99vw;
+    height: 54vh;
+    margin-left: 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+
+}
+.yourAccounts{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+footer{
+    background: rgb(78,128,152);
+    background: linear-gradient(90deg, rgba(78,128,152,1) 24%, rgba(144,194,231,1) 76%);
+    opacity: 0.7;
+    width: 97.5vw;
+    height: 15vh;
+    margin-left: 20px;
+    margin-top: 40px;
+    border-radius: 20px;
+}
+.headerAccount{
+    display: flex;
+    flex-direction: row;
+}
+h1{
+    font-size: 70px !important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(#212D33, #90C2E7) !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+}
+p{
+    font-size: 20px !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #212D33 !important;
+
+}
+.saludo{
+    height: 60px;
+    width: 60px;
+    margin-top: 10px;
+    margin-left: 15px;
+
+}
+.accountInformationCard{
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 280px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #8EAABA;
+    border-radius: 10px;
+    padding: 10px;
+    background-image: url("../images/account.gif"); 
+    background-size: cover;
+    background-position: center center;
+
+}
+.iconTransactions{
+    width: 30px;
+    height: 30px;
+}
+.btnLink{
+    text-decoration: none;
+    font-size: 23px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #212D33  !important;
+
+}
+.btnTransactions{
+    height: 45px;
+    width: 170px;
+    margin-left: 30px;
+    border-radius: 9px;
+    background: rgb(78,128,152);
+    background: radial-gradient(circle, rgba(78,128,152,1) 0%, rgba(144,194,231,1) 100%);
+}
+.btnTransactions:hover{
+    background: rgb(77, 176, 222);
+    background: radial-gradient(circle, rgb(166, 188, 199) 0%, rgb(14, 52, 82) 100%);
+}
+.accountNumber{
+    font-size: 25px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #90C2E7;
+}
+.accountDate{
+    font-size: 16px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #A31621;
+}
+.accountBalance{
+    font-size: 30px;
+    color: green;
+}
+.accountsDash{
+    display:flex !important;
+    flex-direction: row !important;
+}
+.modalTransactions{
+     background: rgb(206,211,220) !important;
+    background: radial-gradient(circle, rgba(252,247,248,1) 0%, rgba(142,170,186,1) 100%) !important;
+}
+.tableTransactions {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .tableTransactions th,
+  .tableTransactions td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid black;
+  }
+  .DEBIT {
+    color: red;
+  }
+
+  .CREDIT {
+    color: green;
+  }
+  .creditCard{
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    height: 250px;
+}
+.frontCardgold{
+    background-image: url(../images/gold.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.complementLogo{
+    display: flex !important;
+    flex-direction: row !important;
+    margin-left: 15px !important;
+    margin-top: 15px !important;
+}
+.titleCard{
+    font-size: 20px !important;
+    color: white !important;
+}
+.logoCard{
+    width: 28px !important;
+    height: 28px !important;
+    margin-left: 15px !important;
+}
+.chipCard{
+    width: 50px !important;
+    height: 50px !important;
+    margin-left: 15px !important;
+}
+.numberCard{
+    display: flex !important;
+    flex-direction: row !important;
+    width: 320px !important;
+    justify-content: center !important;
+    color: aliceblue !important;
+    font-size: 20px !important;
+    margin-top: 5px !important;
+}
+.cardDates{
+    width: 320px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-top: 0px !important;
+    width: 30px !important;
+    padding: 0px !important;
+    justify-content: space-between !important;
+
+}
+.date{
+    color: aliceblue !important;
+    font-size: 10px !important;
+    width: 15px !important;
+    margin-left: 70px !important;
+}
+.chipName{
+    display: flex !important;
+    flex-direction: row !important;
+    margin-top: 15px !important;
+}
+.cardHolder{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 30px !important;
+    color: aliceblue !important;
+    width: 200px !important;
+    font-size: 30px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+.masterCard{
+    width: 60px !important;
+    height: 30px !important;
+    margin-left: 20px !important;
+    margin-bottom: 5px !important;
+}
+.backCardGold{
+    background-image: url(../images/gold.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.customerCard{
+    color:aliceblue !important;
+    text-align: center !important;
+    /* margin-left: 10px !important; */
+    font-size: 15px !important;
+    margin-left: 20px !important;
+
+}
+.bandaCard{
+    background-color: black !important;
+    width: 320px !important;
+    height: 40px !important;
+}
+.cvvCard{
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0px !important;
+    margin-top: 15px !important;
+}
+.cvvBand{
+    margin-left: 10px !important;
+    height: 35px !important;
+    width: 200px !important;
+    background-color: #C8C6C4 !important;
+}
+.cvvText{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #A9A6A7 !important;
+    height: 35px !important;
+    width: 35px !important;
+    color: aliceblue !important;
+    font-size: 20px !important;
+}
+.cardConditions{
+    font-size: 10px !important;
+    color: aliceblue !important;
+    margin: 15px !important;
+    text-align: justify !important;
+}
+.frontCardSilver{
+    background-image: url(../images/silver.avif);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.backCardSilver{
+    background-image: url(../images/silver.avif);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.frontCardTitanium{
+    background-image: url(../images/titanium.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.backCardTitanium{
+    background-image: url(../images/titanium.jpg);
+    width: 320px !important;
+    height: 210px !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+}
+.dates{
+    color: aliceblue !important;
+    font-size: 10px !important;
+    margin-left: 10px !important;
+}
+.accountsText{
+    color: #90C2E7!important;
+}
+
+.ourProducts{
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    
+}
+.productImage{
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+}
+.titleProducts{
+    background: linear-gradient(#212D33, #90C2E7) !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+    font-size: 30px;
+}
+.newProduct{
+    color: #90C2E7;
+}
+.createCard{
+    text-decoration: none;
+    color: #212D33;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts - MindHub Bank LLC</title>
+    <link rel="stylesheet" href="./assets/styles/accounts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body id="app">
+    <header class="d-flex justify-content-between">
+        
+        <img src="./assets/images/logo.png" class="logo">
+        <div class="d-flex flex-row me-5">
+          <h3 class="actionsHeader" @click="logOut">
+            <i class="bi bi-box-arrow-right"></i>
+            Log Out
+          </h3>
+      </div>
+    </header>
+    <nav class="navbar navbar-expand-lg colorNav">
+        <div class="container-fluid">
+          <a class="navbar-brand navColor" href="#">HomeBanking</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active navColor" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link  navColorActive" href="#">Accounts</a>
+              <a class="nav-link navColor" href="./loans.html">Loans</a>
+              <a class="nav-link navColor" href="./cards.html">Cards</a>
+              <a class="nav-link navColor" href="./transfers.html">Transfers</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <main>
+        <div class="containerMain">
+            <div class="textContainer">
+                <h2>Hi {{ cliente.firstName }} {{cliente.lastName}}!</h2>
+                <p>Here you will have your accounts summary, in case that you will need more information, please click 
+                    the button below the cards to see information related to your accounts, like transactions, creation dates, etc.
+                </p>
+                <div class="containerAccounts d-flex flex-row" >
+                    <div class="accounts d-flex flex-column justify-content-center align-items-center" v-for="account of activeAccount">
+                        <h3 class="d-flex flex-row">{{account.number}}</h3>
+                        <h4 class="d-flex flex-row">${{account.balance}}</h4>
+                        <button class="btnTransactions text-center" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="openModal(account)">Transactions</button>
+                        <button class="btn btn-danger text-center" @click="deleteAcc(account.id)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        <div class="products">
+            <h3 class="titleProduct">Our Products</h3>
+            <div class="product">
+                <img src="./assets/images/account.png" alt="" class="imagesProduct">
+                <button class="btnTransactions text-center"  @click="alertCreateAccount">New Account</button>
+            </div>
+            <div class="product d-flex flex-column align-items-center justify-content-center">
+                <img src="./assets/images/newCard.jpg" alt="" class="imagesCardProduct">
+                <button class="btnTransactions text-center"><a href="./create-card.html" class="linkTransactions">New Card</a></button>
+            </div>
+            <div class="product d-flex flex-column align-items-center justify-content-center">
+                <img src="./assets/images/loan.png" alt="" class="imagesProduct">
+                <button class="btnTransactions text-center"><a href="./loan-application.html" class="getLoan">Get a loan</a></button>
+                
+            </div>
+        </div>    
+        </div>
+
+
+    </main>
+    <footer class="d-flex flex-row justify-content-around align-items-center">
+      <div class="footerName">
+        <h2 class="footerTitle">Daniel Lopez</h2>
+      </div>
+      <div class="icons">
+        <a href="https://www.linkedin.com/in/daniel-lopez-5a3989242/" target="_blank"><i class="bi bi-linkedin inconsCustom"></i></a>
+        <a href="https://twitter.com/dlopez1591" target="_blank"><i class="bi bi-twitter inconsCustom"></i></a>
+        <a href="https://github.com/dlopez1591" target="_blank"><i class="bi bi-github inconsCustom"></i></a>
+        <a href="https://wa.me/573217550046" target="_blank"><i class="bi bi-whatsapp inconsCustom"></i></a>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      </div>
+    </footer>
+
+    <!-- modal transactions -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content modalBackGround">
+            <div class="modal-header ">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Transactions</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p><b>Owner:</b> {{ cliente.firstName }} {{cliente.lastName}}</p>
+              <p><b>Notification Email:</b> {{cliente.email}}</p> 
+              <p><b>Number: </b>{{ selectedAccount.number }}</p>
+              <p><b>Balance:</b> {{ selectedAccount.balance }}</p>
+              <p><b>Creation date:</b> {{ new Date(selectedAccount.creationDate).toLocaleDateString() }}</p>
+              <h2>Transactions:</h2>
+              <table class="tableTransactions">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="transaction in selectedAccount.transaction" :key="transaction.id">
+                    <td>{{transaction.date.slice(0, 10) }}</td>
+                    <td>{{ transaction.date.slice(11, 19) }}</td>
+                    <td :class="{ DEBIT: transaction.type === 'DEBIT', CREDIT: transaction.type === 'CREDIT' }">{{transaction.type}}</td>
+                    <td>{{transaction.description}}</td>
+                    <td>{{transaction.amount}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/scripts/accounts.js"></script>
+</body>
+</html>

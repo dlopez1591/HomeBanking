@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Card</title>
+    <link rel="stylesheet" href="./assets/styles/create-card.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body id="app">
+    <header class="d-flex justify-content-between">
+        <img src="./assets/images/logo.png" class="logo">
+        <div class="d-flex flex-row me-5">
+          <h3 class="actionsHeader" data-bs-toggle="modal" data-bs-target="#logIn" @click="logOut">
+            <i class="bi bi-box-arrow-right"></i>
+            Log Out
+          </h3>
+      </div>
+    </header>
+    <nav class="navbar navbar-expand-lg colorNav">
+        <div class="container-fluid">
+          <a class="navbar-brand navColor" href="#">HomeBanking</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active navColor" aria-current="page" href="./index.html">Home</a>
+              <a class="nav-link  navColorActive" href="./accounts.html">Accounts</a>
+              <a class="nav-link navColor" href="./loans.html">Loans</a>
+              <a class="nav-link navColor" href="./cards.html">Cards</a>
+              <a class="nav-link navColor" href="./transfers.html">Transfers</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="d-flex flex-column align-items-center">
+        <div class="cards">
+          <h1>Create a Card</h1>
+          <div class="formCreateCard">
+          <p class="textCreateCard">Heare you have the option to create a card (Debit or Credit), please complete the information below, then click in the button.</p>
+          <div class="createCard">
+              <div class="form-check">
+                  <label class="form-check-label debitOrCredit">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="cardType" value="DEBIT">Debit
+                  </label>
+              </div>
+              <div class="form-check">
+                  <label class="form-check-label debitOrCredit">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="cardType" value="CREDIT">Credit
+                  </label>
+              </div>
+              <select class="m-3 form-select form-select-sm selectCardStyle" aria-label=".form-select-sm example" v-model="cardColor">
+                  <option selected>Select color of card</option>
+                  <option value="GOLD">Gold</option>
+                  <option value="SILVER">Silver</option>
+                  <option value="TITANIUM">Titanium</option>
+              </select>
+              <div class="contenedorBoton d-flex flex-row justify-content-center align-items-center">
+                <button type="button" @click="newCard" class="btn btn-secondary">Create</button>
+              </div>
+              
+            </div>    
+          </div>
+          </div>
+      </main>
+      <footer class="d-flex flex-row justify-content-around align-items-center">
+        <div class="footerName">
+          <h2 class="footerTitle">Daniel Lopez</h2>
+        </div>
+        <div class="icons">
+          <a href="https://www.linkedin.com/in/daniel-lopez-5a3989242/" target="_blank"><i class="bi bi-linkedin inconsCustom"></i></a>
+          <a href="https://twitter.com/dlopez1591" target="_blank"><i class="bi bi-twitter inconsCustom"></i></a>
+          <a href="https://github.com/dlopez1591" target="_blank"><i class="bi bi-github inconsCustom"></i></a>
+          <a href="https://wa.me/573217550046" target="_blank"><i class="bi bi-whatsapp inconsCustom"></i></a>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        </div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="./assets/scripts/createCard.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/styles/accounts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+<body>
+    <main id="app">
+        <header class="d-flex flex-row justify-content-start align-items-end">
+            <img src="./assets/images/bank.png" alt="Logo MindHub Bank" id="logo">
+            <nav class="navbar navbar-expand-lg d-flex flex-row justify-content-start">
+                <div class="container-fluid">
+                  <button class="navbar-toggler hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon lineasHamburguesa"></span>
+                  </button>
+                    </div>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mb-1">
+                      <li class="nav-item ms-5 d-flex flex-row align-items-start">
+                        <img src="./assets/images/home.png" class="icons"><a class="menuLink" aria-current="page" href="./index.html" @click="logout">Log Out</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/wallet.png" class="icons"><a class="menuLink-active" aria-current="page" href="./accounts.html" >Accounts</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/personal.png" class="icons"> <a class="menuLink" data-bs-toggle="modal" data-bs-target="#loansModal">Loans</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/debit-card.png" class="icons"><a class="menuLink" href="./cards.html" >Cards</a>
+                      </li>
+                      <li class="nav-item dropdown">                        
+                    </ul>
+                </div>
+                </div>
+              </nav>
+        </header>
+        <div class="accounts">
+          <div class="youAccounts">
+            <div class="headerAccount">
+                <h1>Hi {{ cliente.firstName }} {{cliente.lastName}}!!!</h1>
+            </div>
+            <p class = "accountsText">Here you will have a resume of your accounts, if you want to see more information like transactions, please click below the card button.</p>
+            <div class="accountsDash">
+              <div class="accountInformationCard" v-for="account in cliente.accounts">
+                <h3 class="accountNumber">{{ account.number }}</h3>
+                <h4 class="accountDate">Creation Date: {{ account.creationDate }}</h4>
+                <h4 class="accountBalance">Balance: ${{ account.balance }}</h4>
+                    <button type="button" class="btnTransactions" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="openModal(account)">
+                      <img src="./assets/images/transaction.png" class="iconTransactions">Transactions
+                    </button>
+            </div>
+            </div>
+          </div>
+            <div class="ourProducts">
+              <h3 class="titleProducts"> {{cliente.firstName}} Click to create a new product </h3>
+              <div class="getAccount">
+                <h5 class="newProduct">Create a New Account</h5>
+                <img src="./assets/images/account.jpg" class="productImage">
+                
+                <button type="button" class="btnTransactions" @click="newAccount">Create Account</button>
+              </div>
+              <div class="getCard">
+                <h5 class="newProduct">Create a Debit or credit card</h5>
+                <img src="./assets/images/creditCard.jpg" class="productImage">
+                
+                <button type="button" class="btnTransactions"><a href="./create-card.html" class="createCard">Create Card</a></button>
+              </div>
+              <div class="getLoan">
+                <h5 class="newProduct">Get a Loan</h5>
+                <img src="./assets/images/loan.jpg" class="productImage">
+            
+                <button type="button" class="btnTransactions">Create Account</button>
+              </div>
+            </div>
+          </div>
+        <footer>
+
+        </footer>
+        
+        <!-- Modal Transactions-->
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content modalTransactions">
+              <div class="modal-header ">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Transactions</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p><b>Owner:</b> {{ cliente.firstName }} {{cliente.lastName}}</p>
+                <p><b>Notification Email:</b> {{cliente.email}}</p> 
+                <p><b>Number: </b>{{ selectedAccount.number }}</p>
+                <p><b>Balance:</b> {{ selectedAccount.balance }}</p>
+                <p><b>Creation date:</b> {{ new Date(selectedAccount.creationDate).toLocaleDateString() }}</p>
+                <h2>Transactions:</h2>
+                <table class="tableTransactions">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="transaction in selectedAccount.transaction" :key="transaction.id">
+                      <td>{{transaction.date}}</td>
+                      <td :class="{ DEBIT: transaction.type === 'DEBIT', CREDIT: transaction.type === 'CREDIT' }">{{transaction.type}}</td>
+                      <td>{{transaction.description}}</td>
+                      <td>{{transaction.amount}}</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Modal Loans-->
+<div class="modal fade " id="loansModal" tabindex="-1" aria-labelledby="loansModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content modalTransactions">
+      <div class="modal-header ">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Loans</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Here you will have a resume of your Loans, check the description.</p>
+        <table class="tableTransactions">
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th>Payments</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="loan in cliente.loans">
+              <td>{{loan.amount}}</td>
+              <td>{{loan.payments}}</td>
+              <td>{{loan.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Cards-->
+<div class="modal fade " id="cardsModal" tabindex="-1" aria-labelledby="cardsModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-fullscreen">
+    <div class="modal-content modalTransactions">
+      <div class="modal-header ">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cards</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="creditCard" v-for="card in cliente.cards"> 
+          <div :class="{ frontCardgold: card.color === 'GOLD', frontCardSilver: card.color === 'SILVER', frontCardTitanium: card.color ==='TITANIUM'}">
+              <div class="complementLogo">
+                  <h1 class = "titleCard" > MINDHUB BANK </h1>
+                  <img src="./assets/images/bank.png" class="logoCard"> 
+              </div>
+              <div class="chipName">
+                  <img src="./assets/images/chip-tarjeta.png" class="chipCard"> 
+                  <p class="cardHolder">{{cliente.firstName}} {{cliente.lastName}}</p>
+              </div>
+                  <p class="numberCard"> <b> {{card.number}} </b></p>
+              <div class="cardDates">
+                  <p class="date">Valid From:</p> <p class="dates">{{card.fromDate}}</p>
+                  <p class="date">Valid End:</p> <p class="dates">{{card.thruDate}}</p>
+                  <img src="./assets/images/mastercard.png" class="masterCard"> 
+              </div>
+          </div>
+          <div :class="{backCardGold: card.color === 'GOLD', backCardSilver: card.color === 'SILVER', backCardTitanium: card.color ==='TITANIUM'}">
+              <p class="customerCard">Customer Service +1 234-567-890</p>
+              <div class="bandaCard">
+              </div>
+              <div class="cvvCard">
+                  <div class="cvvBand"></div>
+                  <p class="cvvText"><b>{{card.cvv}}</b></p>
+              </div>
+              <p class="cardConditions">
+                  A credit card's terms and conditions officially document the rules and guidelines of the agreement between a credit card issuer and a cardholder. Common terms and conditions include the fees, interest rate, and annual percentage rate carried by the credit card.
+              </p> 
+          </div>    
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </main>    
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/scripts/accounts.js"></script>
+</body>
+</html> 

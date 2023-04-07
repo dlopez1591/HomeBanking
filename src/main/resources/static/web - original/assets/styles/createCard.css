@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+body{
+    /* background: rgb(206,211,220) !important;
+    background: radial-gradient(circle, rgba(252,247,248,1) 0%, rgba(142,170,186,1) 100%) !important; */
+    background-image: url(../images/background.jpg);
+    width: 98vw !important;
+    height: 98vh !important;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background: rgb(78,128,152);
+    background: linear-gradient(90deg, rgba(78,128,152,1) 24%, rgba(144,194,231,1) 76%);
+    opacity: 0.7;
+    width: 97.5vw;
+    height: 19vh;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+#logo{
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+}
+.icons{
+    height: 35px;
+    width: 35px;
+}
+.organizarHamburguesa{
+    width: 50vw;
+    height: 19vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.hamburguesa{
+    border-color: #8EAABA !important;
+    border-width: 3px !important;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+}
+.lineasHamburguesa{
+    width: 45px !important;
+}
+.menuLink{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 5px;
+    color: #212D33;
+}
+.menuLink:hover{
+    color: #A31621;
+}
+.menuLink-active{
+    text-decoration: none;
+    font-size: 29px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+    color: #A31621;
+}
+h1{
+    font-size: 70px !important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(#212D33, #90C2E7) !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+}
+p{
+    font-size: 20px !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:#90C2E7;
+}
+.cards{
+    margin-left: 15px;
+    
+}
+.btnTransactions{
+    height: 45px;
+    width: 170px;
+    margin-left: 50px;
+    margin-top: 15px;
+    border-radius: 9px;
+    background: rgb(78,128,152);
+    background: radial-gradient(circle, rgba(78,128,152,1) 0%, rgba(144,194,231,1) 100%);
+
+}
+.btnTransactions:hover{
+    background: rgb(77, 176, 222);
+    background: radial-gradient(circle, rgb(166, 188, 199) 0%, rgb(14, 52, 82) 100%);
+    
+}
+.formCreateCard{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.fieldForm{
+    font-size: 20px !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:#90C2E7;
+}

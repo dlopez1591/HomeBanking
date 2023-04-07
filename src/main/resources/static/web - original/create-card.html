@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Card</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/styles/createCard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <main id="app">
+        <header class="d-flex flex-row justify-content-start align-items-end">
+            <img src="./assets/images/bank.png" alt="Logo MindHub Bank" id="logo">
+            <nav class="navbar navbar-expand-lg d-flex flex-row justify-content-start">
+                <div class="container-fluid">
+                  <button class="navbar-toggler hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon lineasHamburguesa"></span>
+                  </button>
+                    </div>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mb-1">
+                      <li class="nav-item ms-5 d-flex flex-row align-items-start">
+                        <img src="./assets/images/home.png" class="icons"><a class="menuLink" aria-current="page" href="./index.html" @click="logout">Log Out</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/wallet.png" class="icons"><a class="menuLink-active" aria-current="page" href="./accounts.html" >Accounts</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/personal.png" class="icons"> <a class="menuLink" data-bs-toggle="modal" data-bs-target="#loansModal">Loans</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/debit-card.png" class="icons"><a class="menuLink" href="./cards.html" data-bs-toggle="modal" data-bs-target="#cardsModal">Cards</a>
+                      </li>
+                      <li class="nav-item dropdown">                        
+                    </ul>
+                </div>
+                </div>
+              </nav>
+        </header>
+        <div class="cards">
+        <h1>Create a Card</h1>
+        <p>Heare you have the option to create a card, please complete the information below then click in the button</p>
+        <div class="createCard">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="cardType" value="DEBIT">Debit
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="cardType" value="CREDIT">Credit
+                </label>
+            </div>
+            <select class="m-3 form-select form-select-sm" aria-label=".form-select-sm example" v-model="cardColor">
+                <option selected>Select color of card</option>
+                <option value="GOLD">Gold</option>
+                <option value="SILVER">Silver</option>
+                <option value="TITANIUM">Titanium</option>
+            </select>
+            <button type="button" @click="newCard" class="btn btn-primary">New Card</button>
+        </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/scripts/createCard.js"></script>
+</html>

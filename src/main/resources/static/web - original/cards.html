@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/styles/accounts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <main id="app">
+        <header class="d-flex flex-row justify-content-start align-items-end">
+            <img src="./assets/images/bank.png" alt="Logo MindHub Bank" id="logo">
+            <nav class="navbar navbar-expand-lg d-flex flex-row justify-content-start">
+                <div class="container-fluid">
+                  <button class="navbar-toggler hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon lineasHamburguesa"></span>
+                  </button>
+                    </div>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mb-1">
+                      <li class="nav-item ms-5 d-flex flex-row align-items-start">
+                        <img src="./assets/images/home.png" class="icons"><a class="menuLink" aria-current="page" href="./index.html" @click="logout">Log Out</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/wallet.png" class="icons"><a class="menuLink-active" aria-current="page" href="./accounts.html" >Accounts</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/personal.png" class="icons"> <a class="menuLink" data-bs-toggle="modal" data-bs-target="#loansModal">Loans</a>
+                      </li>
+                      <li class="nav-item ms-5 d-flex flex-row align-items-center">
+                        <img src="./assets/images/debit-card.png" class="icons"><a class="menuLink" href="./cards.html" data-bs-toggle="modal" data-bs-target="#cardsModal">Cards</a>
+                      </li>
+                      <li class="nav-item dropdown">                        
+                    </ul>
+                </div>
+                </div>
+              </nav>
+        </header>
+        <div class="creditCard" v-for="card in cliente.cards"> 
+            <div :class="{ frontCardgold: card.color === 'GOLD', frontCardSilver: card.color === 'SILVER', frontCardTitanium: card.color ==='TITANIUM'}">
+                <div class="complementLogo">
+                    <h1 class = "titleCard" > MINDHUB BANK </h1>
+                    <img src="./assets/images/bank.png" class="logoCard"> 
+                </div>
+                <div class="chipName">
+                    <img src="./assets/images/chip-tarjeta.png" class="chipCard"> 
+                    <p class="cardHolder">{{cliente.firstName}} {{cliente.lastName}}</p>
+                </div>
+                    <p class="numberCard"> <b> {{card.number}} </b></p>
+                <div class="cardDates">
+                    <p class="date">Valid From:</p> <p class="dates">{{card.fromDate}}</p>
+                    <p class="date">Valid End:</p> <p class="dates">{{card.thruDate}}</p>
+                    <img src="./assets/images/mastercard.png" class="masterCard"> 
+                </div>
+            </div>
+            <div :class="{backCardGold: card.color === 'GOLD', backCardSilver: card.color === 'SILVER', backCardTitanium: card.color ==='TITANIUM'}">
+                <p class="customerCard">Customer Service +1 234-567-890</p>
+                <div class="bandaCard">
+                </div>
+                <div class="cvvCard">
+                    <div class="cvvBand"></div>
+                    <p class="cvvText"><b>{{card.cvv}}</b></p>
+                </div>
+                <p class="cardConditions">
+                    A credit card's terms and conditions officially document the rules and guidelines of the agreement between a credit card issuer and a cardholder. Common terms and conditions include the fees, interest rate, and annual percentage rate carried by the credit card.
+                </p> 
+            </div>    
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/scripts/accounts.js"></script>
+</body>
+</html>
